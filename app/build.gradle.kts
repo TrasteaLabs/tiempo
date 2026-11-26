@@ -106,7 +106,14 @@ android {
             isIncludeAndroidResources = true
             isReturnDefaultValues = true
             // 008 (H12): Robolectric en varios procesos.
-            all { it.maxParallelForks = (Runtime.getRuntime().availableProcessors() / 2).coerceAtLeast(1) }
+            all {
+                it.maxParallelForks = (Runtime.getRuntime().availableProcessors() / 2).coerceAtLeast(1)
+                // 022: los tests corren con la zona y el idioma fijos, igual en este PC que en GitHub (UTC, inglés).
+                // Un test que dependa de la zona del aparato falla aquí también, no solo en GitHub.
+                it.systemProperty("user.timezone", "UTC")
+                it.systemProperty("user.language", "en")
+                it.systemProperty("user.country", "US")
+            }
         }
     }
 
