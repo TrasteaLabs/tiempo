@@ -1,0 +1,3 @@
+# Huella SHA-256 del certificado con que se firma Tiempo (dato público: sale de cualquier APK publicado con
+# `apksigner verify --print-certs`). .github/workflows/beta.yml no publica un APK que no lleve esta huella.
+9c91d397b52534cb1da23075cbe78d78ab05df5fa1be89611ab4a52fbd46a0e1

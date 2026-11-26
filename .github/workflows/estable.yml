@@ -1,0 +1,93 @@
+# La estable promociona una beta (022): al subir una etiqueta vX.Y.Z (lo hace tools/publicar.sh estable), busca la
+# beta de ese mismo commit y publica ese mismo fichero como release normal, la «latest». No compila ni usa secretos.
+name: estable
+
+on:
+  push:
+    tags: ["v[0-9]+.[0-9]+.[0-9]+"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: estable
+  cancel-in-progress: false
+
+jobs:
+  estable:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write # crear la release
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Buscar la beta de este commit
+        id: beta
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag="$GITHUB_REF_NAME"
+          echo "$tag" | grep -Eq '^v[0-9]+\.[0-9]+\.[0-9]+$' || { echo "::error::$tag no es vX.Y.Z"; exit 1; }
+          name="${tag#v}"
+          file=$(sed -n 's/^versionName=//p' version.properties | tr -d '\r[:space:]')
+          [ "$file" = "$name" ] || { echo "::error::La etiqueta $tag no coincide con version.properties ($file) en ese commit."; exit 1; }
+          commit=$(git rev-parse "$tag^{commit}")
+          beta=""
+          for t in $(git tag --points-at "$commit" -l "v$name-beta.*"); do
+            if gh release view "$t" --repo "$GITHUB_REPOSITORY" --json isPrerelease --jq .isPrerelease | grep -qx true; then beta="$t"; fi
+          done
+          [ -n "$beta" ] || { echo "::error::No hay beta publicada del commit $commit (se busca v$name-beta.* en ese commit). La estable solo promociona una beta."; exit 1; }
+          echo "name=$name" >> "$GITHUB_OUTPUT"
+          echo "tag=$beta" >> "$GITHUB_OUTPUT"
+          echo "Promociona $beta ($commit)"
+
+      - name: Bajar el APK de la beta
+        id: apk
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/apk"
+          gh release download "${{ steps.beta.outputs.tag }}" --repo "$GITHUB_REPOSITORY" --pattern 'tiempo-*.apk' --dir "$RUNNER_TEMP/apk"
+          count=$(ls "$RUNNER_TEMP/apk" | wc -l)
+          [ "$count" = "1" ] || { echo "::error::La beta tiene $count APK, se espera 1"; exit 1; }
+          file=$(ls "$RUNNER_TEMP/apk")
+          sum=$(sha256sum "$RUNNER_TEMP/apk/$file" | cut -d' ' -f1)
+          digest=$(gh api "repos/$GITHUB_REPOSITORY/releases/tags/${{ steps.beta.outputs.tag }}" --jq ".assets[] | select(.name == \"$file\") | .digest")
+          [ "$digest" = "sha256:$sum" ] || { echo "::error::El APK bajado no cuadra con el de la beta ($digest, sale sha256:$sum)"; exit 1; }
+          echo "path=$RUNNER_TEMP/apk/$file" >> "$GITHUB_OUTPUT"
+          echo "file=$file" >> "$GITHUB_OUTPUT"
+          echo "sha=$sum" >> "$GITHUB_OUTPUT"
+
+      - name: Notas
+        run: |
+          prev=$(git describe --tags --abbrev=0 --match 'v[0-9]*' --exclude '*-beta.*' "$GITHUB_REF_NAME^" 2>/dev/null || true)
+          {
+            echo "El mismo fichero que la beta ${{ steps.beta.outputs.tag }} (SHA-256 \`${{ steps.apk.outputs.sha }}\`)."
+            echo
+            if [ -n "$prev" ]; then
+              echo "Cambios desde $prev:"
+              echo
+              git log --no-merges --pretty='- %s' "$prev..$GITHUB_REF_NAME"
+            else
+              echo "Primera versión pública."
+            fi
+          } > "$RUNNER_TEMP/notas.md"
+          cat "$RUNNER_TEMP/notas.md"
+
+      - name: Publicar la estable
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" "${{ steps.apk.outputs.path }}" \
+            --repo "$GITHUB_REPOSITORY" \
+            --verify-tag \
+            --latest \
+            --title "Tiempo ${{ steps.beta.outputs.name }}" \
+            --notes-file "$RUNNER_TEMP/notas.md"
+          digest=$(gh api "repos/$GITHUB_REPOSITORY/releases/tags/$GITHUB_REF_NAME" --jq ".assets[] | select(.name == \"${{ steps.apk.outputs.file }}\") | .digest")
+          [ "$digest" = "sha256:${{ steps.apk.outputs.sha }}" ] || { echo "::error::El APK subido no es el de la beta ($digest)"; exit 1; }
+          echo "Estable publicada con el mismo fichero: $digest"

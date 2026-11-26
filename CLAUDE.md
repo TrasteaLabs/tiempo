@@ -12,6 +12,13 @@ Se lleva con **Becario** (plugin de Claude Code): lo nuevo o grande empieza con 
 - `sh tools/bench.sh arranque|desplazar` → Macrobenchmark (arranque en frío y desplazar de la demo) en un móvil **por cable**; se niega si ve una conexión inalámbrica. `sh tools/bench.sh perfil` regenera `app/src/main/generated/baselineProfiles/baseline-prof.txt`, **solo en un emulador**. Nunca `connectedAndroidTest` (desinstala la app y se lleva los sitios guardados).
 - `python tools/build_places.py` → regenera `app/src/main/assets/places.tsv.gz` desde GeoNames. Solo si se cambia la lista de lugares.
 - `tools/subir-secretos.ps1` → sube a GitHub los cuatro secretos de firma. Lo ejecuta quien mantiene, nunca Claude.
+- `sh tools/publicar.sh estable` → publica la estable: etiqueta `vX.Y.Z` en el commit de la última beta y GitHub publica ese mismo APK. **Solo cuando quien mantiene dice «publica la estable»**, nunca por iniciativa propia.
+
+## Publicar (022)
+- Repo público `trastealabs/tiempo`. Tres flujos en `.github/workflows/`: `check.yml` (cada push y pull request, sin secretos), `beta.yml` (cada push a `main` que toque la app: compila, firma, comprueba la huella de `firma.sha256` y publica la «prerelease» `vX.Y.Z-beta.N`) y `estable.yml` (al llegar una etiqueta `vX.Y.Z`: promociona el APK de la beta de ese commit, sin compilar).
+- Las rutas que disparan una beta están en `beta.yml` y en `tools/publicar.sh`: si cambian, en los dos.
+- Con la estable de una versión publicada, `beta.yml` falla hasta que se sube `versionName`. Las acciones van fijadas por hash: al actualizarlas, hash y comentario de versión.
+- Commits con la identidad del estudio (configuración local del repo: «Trastea Labs <hola@trastealabs.com>»), nunca un correo personal.
 
 ## Versiones
 - `versionName` en `version.properties` (X.Y.Z). `versionCode` = número de commits (`git rev-list --count HEAD`), con `-PversionCode` o la variable `VERSION_CODE` por delante y 1 si no hay git. La lógica vive en `buildSrc/` y tiene sus tests.

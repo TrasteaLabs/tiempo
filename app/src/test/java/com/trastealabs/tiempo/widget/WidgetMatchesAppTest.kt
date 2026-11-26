@@ -36,7 +36,8 @@ class WidgetMatchesAppTest {
         val temperature = "22°"
         val time = "09:47"
 
-        rule.setContent { Header(snapshot, now) }
+        // El móvil en la zona del sitio: si no, la cabecera añade «, hora de allí» (en GitHub el aparato está en UTC).
+        rule.setContent { Header(snapshot, now, phoneZone = java.time.ZoneId.of(snapshot.zoneId)) }
         rule.onNode(androidx.compose.ui.test.hasText(temperature), useUnmergedTree = true).assertExists()
         rule.onNode(androidx.compose.ui.test.hasText("Martes, 10 de junio · $time")).assertExists()
 
