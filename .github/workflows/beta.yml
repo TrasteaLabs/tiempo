@@ -1,0 +1,153 @@
+# Cada cambio de la app que llega a main sale como beta (022): check, release firmada, huella comprobada, etiqueta
+# v<versionName>-beta.<versionCode> y una «prerelease» con el APK. Solo en push a main: un pull request (de un fork o
+# no) nunca llega aquí, así que nunca ve los secretos. Los secretos solo los ve el trabajo «beta», y solo en los
+# pasos que los usan. Las rutas de abajo son las mismas que mira tools/publicar.sh: si cambian, cambiar las dos.
+name: beta
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "app/**"
+      - "benchmark/**"
+      - "buildSrc/**"
+      - "gradle/**"
+      - "*.kts"
+      - "gradle.properties"
+      - "version.properties"
+      - "firma.sha256"
+      - ".github/workflows/beta.yml"
+
+permissions:
+  contents: read
+
+# De una en una y sin cancelar: cada beta tiene su número y su etiqueta.
+concurrency:
+  group: beta
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-java@77dd5b2ce225ea11469928ac317850245a74ae78 # v6.2.0
+        with:
+          distribution: temurin
+          java-version: "21"
+      - uses: gradle/actions/setup-gradle@8da46b539cd8fe6ab27ca75128919a18d757604c # v6.4.1
+      - name: check
+        run: ./gradlew :buildSrc:test lintDebug testDebugUnitTest --console=plain
+
+  beta:
+    needs: check
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: write # crear la etiqueta y la release
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # El versionCode es el número de commits: con un clonado superficial saldría 1. También trae las etiquetas.
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-java@77dd5b2ce225ea11469928ac317850245a74ae78 # v6.2.0
+        with:
+          distribution: temurin
+          java-version: "21"
+      - uses: gradle/actions/setup-gradle@8da46b539cd8fe6ab27ca75128919a18d757604c # v6.4.1
+        with:
+          cache-read-only: true
+
+      - name: Versión
+        id: version
+        run: |
+          name=$(sed -n 's/^versionName=//p' version.properties | tr -d '\r[:space:]')
+          code=$(git rev-list --count HEAD)
+          echo "$name" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+$' || { echo "::error::version.properties: versionName no es X.Y.Z («$name»)"; exit 1; }
+          if git rev-parse -q --verify "refs/tags/v$name" >/dev/null; then
+            echo "::error::La $name ya tiene estable publicada (etiqueta v$name). Sube versionName en version.properties: un encargo, el segundo número; un retoque, el tercero."
+            exit 1
+          fi
+          tag="v$name-beta.$code"
+          if git rev-parse -q --verify "refs/tags/$tag" >/dev/null; then
+            echo "::error::La etiqueta $tag ya existe: esta beta ya salió."
+            exit 1
+          fi
+          echo "name=$name" >> "$GITHUB_OUTPUT"
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+          echo "Beta $tag"
+
+      - name: Clave de firma
+        env:
+          RELEASE_KEYSTORE_BASE64: ${{ secrets.RELEASE_KEYSTORE_BASE64 }}
+        run: |
+          [ -n "$RELEASE_KEYSTORE_BASE64" ] || { echo "::error::Falta el secreto RELEASE_KEYSTORE_BASE64 (tools/subir-secretos.ps1)"; exit 1; }
+          umask 077
+          printf '%s' "$RELEASE_KEYSTORE_BASE64" | base64 -d > "$RUNNER_TEMP/release.keystore"
+
+      - name: Compilar la release firmada
+        env:
+          RELEASE_SIGNING_REQUIRED: "true"
+          RELEASE_KEYSTORE_FILE: ${{ runner.temp }}/release.keystore
+          RELEASE_KEYSTORE_PASSWORD: ${{ secrets.RELEASE_KEYSTORE_PASSWORD }}
+          RELEASE_KEY_ALIAS: ${{ secrets.RELEASE_KEY_ALIAS }}
+          RELEASE_KEY_PASSWORD: ${{ secrets.RELEASE_KEY_PASSWORD }}
+          VERSION_CODE: ${{ steps.version.outputs.code }}
+        run: ./gradlew assembleRelease --console=plain
+
+      - name: Borrar la clave
+        if: always()
+        run: rm -f "$RUNNER_TEMP/release.keystore"
+
+      - name: Comprobar la firma
+        id: apk
+        run: |
+          apk="app/build/outputs/apk/release/tiempo-${{ steps.version.outputs.name }}-${{ steps.version.outputs.code }}.apk"
+          [ -f "$apk" ] || { echo "::error::No está $apk"; ls -la app/build/outputs/apk/release/ || true; exit 1; }
+          tools=$(ls "$ANDROID_HOME/build-tools" | sort -V | tail -n 1)
+          certs=$("$ANDROID_HOME/build-tools/$tools/apksigner" verify --print-certs "$apk")
+          # apksigner escribe una línea por esquema («V2 Signer: certificate SHA-256 digest: …», o «Signer #1 …»):
+          # todas tienen que dar la misma huella, y una sola.
+          digests=$(printf '%s\n' "$certs" | sed -n 's/.*certificate SHA-256 digest: *//p' | tr -d '\r' | tr 'A-F' 'a-f' | sort -u)
+          count=$(printf '%s\n' "$digests" | grep -c . || true)
+          [ "$count" = "1" ] || { echo "::error::El APK tiene $count certificados distintos, se espera 1"; printf '%s\n' "$certs"; exit 1; }
+          got=$(printf '%s' "$digests" | tr -d '[:space:]')
+          want=$(grep -v '^#' firma.sha256 | tr -d '[:space:]' | tr 'A-F' 'a-f')
+          [ -n "$want" ] || { echo "::error::firma.sha256 está vacío"; exit 1; }
+          if [ "$got" != "$want" ]; then
+            echo "::error::El APK no está firmado con la clave de siempre (huella $got, se espera $want). No se publica."
+            exit 1
+          fi
+          echo "Firma correcta: $got"
+          echo "path=$apk" >> "$GITHUB_OUTPUT"
+
+      - name: Notas
+        run: |
+          prev=$(git describe --tags --abbrev=0 --match 'v*-beta.*' HEAD^ 2>/dev/null || true)
+          {
+            if [ -n "$prev" ]; then
+              echo "Cambios desde $prev:"
+              echo
+              git log --no-merges --pretty='- %s' "$prev..HEAD"
+            else
+              echo "Primera beta pública."
+            fi
+          } > "$RUNNER_TEMP/notas.md"
+          cat "$RUNNER_TEMP/notas.md"
+
+      - name: Publicar la beta
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "${{ steps.version.outputs.tag }}" "${{ steps.apk.outputs.path }}" \
+            --repo "$GITHUB_REPOSITORY" \
+            --target "$GITHUB_SHA" \
+            --prerelease \
+            --title "Tiempo ${{ steps.version.outputs.name }} beta ${{ steps.version.outputs.code }}" \
+            --notes-file "$RUNNER_TEMP/notas.md"
