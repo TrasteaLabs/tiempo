@@ -65,9 +65,8 @@ jobs:
       - name: Notas
         run: |
           prev=$(git describe --tags --abbrev=0 --match 'v[0-9]*' --exclude '*-beta.*' "$GITHUB_REF_NAME^" 2>/dev/null || true)
+          # La app enseña estas notas tal cual (sin Markdown): primero lo que cambia, al final de qué beta sale.
           {
-            echo "El mismo fichero que la beta ${{ steps.beta.outputs.tag }} (SHA-256 \`${{ steps.apk.outputs.sha }}\`)."
-            echo
             if [ -n "$prev" ]; then
               echo "Cambios desde $prev:"
               echo
@@ -75,6 +74,8 @@ jobs:
             else
               echo "Primera versión pública."
             fi
+            echo
+            echo "Es el mismo fichero que la beta ${{ steps.beta.outputs.tag }}. SHA-256: ${{ steps.apk.outputs.sha }}"
           } > "$RUNNER_TEMP/notas.md"
           cat "$RUNNER_TEMP/notas.md"
 

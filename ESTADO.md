@@ -3,7 +3,7 @@
 Actualizado: 2026-11-26. Proyecto al día con Becario 1.0 y Cristal 1.6 (`.claude/becario.json` 1.0.2). `check`: `./gradlew :buildSrc:test lintDebug testDebugUnitTest` (1509 tests de la app, verde).
 
 ## Encargo en curso
-022-tiempo-publicada · fase: construcción (bloque 3 de 5)
+022-tiempo-publicada · fase: construcción (bloque 5 de 5)
 
 Plan en `docs/encargos/022-tiempo-publicada/plan.md`: publicar en `trastealabs/tiempo` (ya existe, público y vacío, con los secretos de firma). El 021 está entregado (`docs/encargos/021-tiempo-abierta/entrega.md`).
 

@@ -21,7 +21,8 @@ on:
 permissions:
   contents: read
 
-# De una en una y sin cancelar: cada beta tiene su número y su etiqueta.
+# De una en una: la que está en marcha no se corta. Si llegan varios pushes seguidos, GitHub deja en espera solo el
+# último y descarta los de en medio; no se pierde nada, porque la beta del último lleva todos los cambios.
 concurrency:
   group: beta
   cancel-in-progress: false

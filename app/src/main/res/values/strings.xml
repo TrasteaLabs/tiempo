@@ -118,6 +118,7 @@
     <string name="about_feedback">Comentarios y fallos, en GitHub</string>
     <string name="about_email">Por correo: %1$s</string>
     <string name="about_email_copy">Copiar el correo</string>
+    <string name="about_email_copied">Correo copiado</string>
     <string name="about_licenses">Licencias de terceros</string>
     <string name="about_license_line">%1$s · %2$s</string>
     <string name="about_seal">Trastea Labs · por Álvaro García · Córdoba</string>

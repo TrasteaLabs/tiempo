@@ -117,6 +117,23 @@ class SettingsScreenTest {
         rule.onNodeWithText("Trastea Labs · por Álvaro García · Córdoba").performScrollTo().assertIsDisplayed()
     }
 
+    // 022: un móvil sin app de correo no puede abrir el mailto; tocar el correo lo copia en vez de no hacer nada.
+    @Test fun `sin app de correo, tocar el correo lo copia`() {
+        val failing = object : androidx.compose.ui.platform.UriHandler {
+            override fun openUri(uri: String) = throw IllegalStateException("sin app para $uri")
+        }
+        val clipboard = androidx.test.core.app.ApplicationProvider.getApplicationContext<android.content.Context>()
+            .getSystemService(android.content.ClipboardManager::class.java)
+        clipboard.clearPrimaryClip()
+        rule.setContent {
+            androidx.compose.runtime.CompositionLocalProvider(androidx.compose.ui.platform.LocalUriHandler provides failing) {
+                WeatherTheme { Box { SettingsScreen(usage(now, 0, 0), now, {}, zone) } }
+            }
+        }
+        rule.onNodeWithTag("about_email").performScrollTo().performClick()
+        assertEquals("hola@trastealabs.com", clipboard.primaryClip?.getItemAt(0)?.text?.toString())
+    }
+
     @Test fun `Acerca de enlaza al codigo, la privacidad y los comentarios, y despliega las licencias`() {
         val opened = mutableListOf<String>()
         val handler = object : androidx.compose.ui.platform.UriHandler {
@@ -151,6 +168,10 @@ class SettingsScreenTest {
             .getSystemService(android.content.ClipboardManager::class.java)
         assertEquals("hola@trastealabs.com", clipboard.primaryClip?.getItemAt(0)?.text?.toString())
         assertEquals(6, opened.size) // mantener pulsado no abre el correo
+        assertEquals(
+            "Copiar el correo",
+            rule.onNodeWithTag("about_email").fetchSemanticsNode().config[SemanticsActions.OnLongClick].label,
+        )
         rule.onNodeWithText("Código abierto (GPL-3.0)").assertExists()
         rule.onAllNodesWithText("OkHttp · Apache 2.0").assertCountEquals(0)
         rule.onNodeWithTag("about_licenses").performScrollTo().performClick()
