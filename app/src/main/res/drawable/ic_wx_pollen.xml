@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Polen (flor de cinco pétalos), `FLOWER` de la maqueta del 005, vector propio. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:fillAlpha="0.6"
+        android:pathData="M8.7,6.6a3.3,3.3 0,1 1,6.6,0a3.3,3.3 0,1 1,-6.6,0Z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:fillAlpha="0.6"
+        android:pathData="M13.84,10.33a3.3,3.3 0,1 1,6.6,0a3.3,3.3 0,1 1,-6.6,0Z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:fillAlpha="0.6"
+        android:pathData="M11.87,16.37a3.3,3.3 0,1 1,6.6,0a3.3,3.3 0,1 1,-6.6,0Z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:fillAlpha="0.6"
+        android:pathData="M5.53,16.37a3.3,3.3 0,1 1,6.6,0a3.3,3.3 0,1 1,-6.6,0Z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:fillAlpha="0.6"
+        android:pathData="M3.56,10.33a3.3,3.3 0,1 1,6.6,0a3.3,3.3 0,1 1,-6.6,0Z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M9.3,12a2.7,2.7 0,1 1,5.4,0a2.7,2.7 0,1 1,-5.4,0Z" />
+</vector>

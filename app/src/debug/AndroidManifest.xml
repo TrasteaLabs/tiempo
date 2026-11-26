@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Herramientas de demo, solo en la versión debug: ver cualquier escena con datos inventados. -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+        <activity
+            android:name=".demo.DemoActivity"
+            android:exported="true" />
+
+        <receiver
+            android:name=".demo.DemoReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.trastealabs.tiempo.debug.DEMO" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

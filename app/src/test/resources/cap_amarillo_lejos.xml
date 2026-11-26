@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<alert xmlns="urn:oasis:names:tc:emergency:cap:1.2">
+    <identifier>2.49.0.0.724.0.ES.20250610093000.999902PR</identifier>
+    <sender>http://www.aemet.es</sender>
+    <sent>2025-06-10T09:30:00+02:00</sent>
+    <status>Actual</status>
+    <msgType>Alert</msgType>
+    <scope>Public</scope>
+    <info>
+        <language>es-ES</language>
+        <category>Met</category>
+        <event>Lluvias - Aviso amarillo</event>
+        <responseType>Monitor</responseType>
+        <urgency>Future</urgency>
+        <severity>Moderate</severity>
+        <certainty>Likely</certainty>
+        <eventCode>
+            <valueName>AEMET-Meteoalerta fenomeno</valueName>
+            <value>PR;Lluvias</value>
+        </eventCode>
+        <effective>2025-06-10T09:30:00+02:00</effective>
+        <onset>2025-06-10T12:00:00+02:00</onset>
+        <expires>2025-06-10T20:00:00+02:00</expires>
+        <senderName>AEMET. Agencia Estatal de Meteorología</senderName>
+        <headline>Lluvias - Aviso amarillo. Costa Lejana</headline>
+        <web>http://www.aemet.es/es/eltiempo/prediccion/avisos</web>
+        <contact>https://www.aemet.es/es/contacto</contact>
+        <parameter>
+            <valueName>AEMET-Meteoalerta nivel</valueName>
+            <value>amarillo</value>
+        </parameter>
+        <parameter>
+            <valueName>AEMET-Meteoalerta parametro</valueName>
+            <value>PR;Lluvias;</value>
+        </parameter>
+        <parameter>
+            <valueName>AEMET-Meteoalerta probabilidad</valueName>
+            <value>40%-70%</value>
+        </parameter>
+        <description>Lluvias acumuladas de 15 mm en una hora.</description>
+        <instruction></instruction>
+        <area>
+            <areaDesc>Costa Lejana</areaDesc>
+            <polygon>43.0,-8.5 43.5,-8.5 43.5,-7.5 43.0,-7.5 43.0,-8.5</polygon>
+            <geocode>
+                <valueName>AEMET-Meteoalerta zona</valueName>
+                <value>999901</value>
+            </geocode>
+        </area>
+    </info>
+</alert>

@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tiempo</string>
+    <string name="searching_place">Buscando dónde estás…</string>
+    <string name="updating">Actualizando…</string>
+    <string name="feels_like">Sensación %1$s°</string>
+    <string name="max_min">Máx %1$s° · Mín %2$s°</string>
+    <!-- 009: la línea de datos de la cabecera sin tarjeta y el Resumen (H11, H12). -->
+    <string name="max_min_feels">Máx %1$s° · Mín %2$s° · Sensación %3$s°</string>
+    <string name="summary_title">Resumen</string>
+    <string name="open_warning">Abre el aviso</string>
+    <string name="offline_title">Sin conexión</string>
+    <string name="offline_body">No he podido descargar el tiempo y todavía no tengo nada guardado. Comprueba la conexión y vuelve a intentarlo.</string>
+    <string name="retry">Reintentar</string>
+    <string name="permission_title">Necesito saber dónde estás</string>
+    <string name="permission_body">Uso tu ubicación solo para pedir el tiempo de tu zona. No sale del móvil más que hacia Open-Meteo, redondeada a un kilómetro.</string>
+    <string name="grant_permission">Dar permiso</string>
+    <string name="no_location_title">No encuentro tu ubicación</string>
+    <string name="no_location_body">El móvil no me da tu posición ahora mismo. Comprueba que la ubicación está activada e inténtalo de nuevo.</string>
+    <string name="next_24_hours">Próximas 24 horas</string>
+    <string name="next_10_days">Próximos 10 días</string>
+    <string name="now">Ahora</string>
+    <!-- 019: la fila de lluvia de las horas cuando ninguna llega al 20 % -->
+    <string name="hours_dry_24h">Sin lluvia en las próximas 24 h</string>
+    <string name="hours_dry_day">Sin lluvia en todo el día</string>
+    <!-- 019: TalkBack de una columna de horas: «14:00, 21 grados, nubes, 40 % de lluvia» -->
+    <string name="hour_spoken_time">%1$02d:00</string>
+    <string name="hour_spoken_temp">%1$d grados</string>
+    <string name="hour_spoken_rain">%1$d %% de lluvia</string>
+    <string name="today">Hoy</string>
+    <string-array name="weekdays_short">
+        <item>Lun</item>
+        <item>Mar</item>
+        <item>Mié</item>
+        <item>Jue</item>
+        <item>Vie</item>
+        <item>Sáb</item>
+        <item>Dom</item>
+    </string-array>
+    <!-- La tira de días de la ventana del día (009): una letra, como la maqueta. -->
+    <string-array name="weekdays_letter">
+        <item>L</item>
+        <item>M</item>
+        <item>X</item>
+        <item>J</item>
+        <item>V</item>
+        <item>S</item>
+        <item>D</item>
+    </string-array>
+    <string name="sky_clear">Despejado</string>
+    <string name="sky_partly_cloudy">Parcialmente nuboso</string>
+    <string name="sky_cloudy">Nublado</string>
+    <string name="sky_fog">Niebla</string>
+    <string name="sky_drizzle">Llovizna</string>
+    <string name="sky_rain">Lluvia</string>
+    <string name="sky_snow">Nieve</string>
+    <string name="sky_storm">Tormenta</string>
+    <string name="widget_open_app">Abre la app para empezar</string>
+    <string name="widget_open_app_short">Abre la app</string>
+    <string name="widget_warning">Aviso</string>
+    <string name="widget_until">%1$s · hasta las %2$s</string>
+    <string name="widget_desc_range">, máxima %1$s y mínima %2$s</string>
+    <string name="widget_desc_warning">. Aviso %1$s: %2$s</string>
+    <string name="widget_desc_offline">. Sin conexión, datos de las %1$s</string>
+    <string name="widget_desc_updated">. Datos de las %1$s</string>
+    <string name="widget_level_yellow">amarillo</string>
+    <string name="widget_level_orange">naranja</string>
+    <string name="widget_level_red">rojo</string>
+    <string name="widget_large_label">Tiempo (grande)</string>
+    <string name="widget_description">El tiempo de donde estás, con lo último guardado</string>
+    <string name="battery_title">Para que el widget no se congele</string>
+    <string name="battery_note">ColorOS cierra las apps en segundo plano para ahorrar batería. Te lo digo solo esta vez:</string>
+    <string name="battery_step1_title">Ubicación: «Permitir todo el tiempo»</string>
+    <string name="battery_step1_body">Así el widget te sigue cuando viajas. Si no, usa el último sitio donde abriste la app.</string>
+    <string name="battery_step2_title">Batería: Tiempo</string>
+    <string name="battery_step2_body">Activa «Actividad en segundo plano» e «Inicio automático».</string>
+    <string name="battery_open_settings">Abrir ajustes</string>
+    <string name="battery_not_now">Ahora no</string>
+    <!-- 021: Open-Meteo pide un enlace junto a los datos (CC BY 4.0); AEMET, «Fuente: AEMET» en un servicio con valor añadido. -->
+    <string name="footer_openmeteo">Datos del tiempo de Open-Meteo.com</string>
+    <string name="footer_sources">%1$s (CC BY 4.0) · Aire y polen: CAMS (Copernicus), vía Open-Meteo · Avisos: fuente AEMET · Lugares: GeoNames (CC BY 4.0) · Luna: NASA</string>
+    <string name="warning_area">Zona</string>
+    <string name="warning_period">Vigencia</string>
+    <string name="warning_probability">Probabilidad</string>
+    <string name="warning_plain">En llano</string>
+    <string name="warning_comment">Comentario</string>
+    <string name="warning_instruction">Qué hacer</string>
+    <string name="warning_source">Fuente</string>
+    <string name="day_window_pane">Detalle del día</string>
+    <string name="card_wind">Viento</string>
+    <string name="card_humidity">Humedad</string>
+    <string name="card_sun">Sol</string>
+    <string name="card_moon">Luna</string>
+    <!-- TalkBack de la ficha de la luna: «Luna: Menguante, 23 por ciento. Sale a las 02:47 · se pone a las 15:43» -->
+    <string name="moon_card_description">Luna: %1$s, %2$d por ciento. %3$s</string>
+    <string name="reliability_shown">Lo que te enseño</string>
+    <string name="reliability_shown_note">La previsión de siempre</string>
+    <string name="reliability_row">%1$s: %2$s</string>
+    <string name="settings">Ajustes</string>
+    <string name="back">Volver</string>
+    <string name="temp_spoken">%1$d grados</string>
+    <string name="usage_title">Consumo de Open-Meteo</string>
+    <string name="usage_today">Hoy</string>
+    <string name="usage_month">Este mes</string>
+    <string name="usage_today_detail">de %1$s · %2$s · vuelve a 0 a medianoche</string>
+    <string name="usage_month_detail">de %1$s · %2$s · vuelve a 0 el día 1</string>
+    <string name="usage_unit">llamadas</string>
+    <string name="about_title">Acerca de</string>
+    <string name="about_version">Versión %1$s (%2$d)</string>
+    <string name="about_moon">Luna: NASA</string>
+    <string name="about_openmeteo">Datos del tiempo de Open-Meteo.com · CC BY 4.0</string>
+    <string name="about_aemet">Avisos: información elaborada utilizando, entre otras, la obtenida de la Agencia Estatal de Meteorología (AEMET), que no participa en esta app ni la patrocina</string>
+    <string name="about_air">Aire y polen: CAMS (Copernicus), vía Open-Meteo</string>
+    <string name="about_places">Lugares: GeoNames · CC BY 4.0</string>
+    <string name="about_font">Letra: Google Sans Flex, con licencia OFL</string>
+    <string name="about_source_code">Código abierto (GPL-3.0)</string>
+    <string name="about_privacy">Privacidad</string>
+    <string name="about_feedback">Comentarios y fallos, en GitHub</string>
+    <string name="about_email">Por correo: %1$s</string>
+    <string name="about_email_copy">Copiar el correo</string>
+    <string name="about_licenses">Licencias de terceros</string>
+    <string name="about_license_line">%1$s · %2$s</string>
+    <string name="about_seal">Trastea Labs · por Álvaro García · Córdoba</string>
+
+    <!-- 021: el actualizador («Versión de la app», para no confundirla con «Refrescos», que es el dato del tiempo). -->
+    <string name="update_title">Versión de la app</string>
+    <string name="update_installed">Instalada: %1$s (%2$d)</string>
+    <string name="update_dev">Esta es la versión de desarrollo: no busca versiones nuevas ni se actualiza sola.</string>
+    <string name="update_never">Aún no se ha comprobado. Se mira al abrir la app, como mucho una vez al día.</string>
+    <string name="update_up_to_date">Está al día</string>
+    <string name="update_checked_at">Comprobado %1$s</string>
+    <string name="update_today_at">hoy a las %1$s</string>
+    <string name="update_yesterday_at">ayer a las %1$s</string>
+    <string name="update_on_day">el %1$s</string>
+    <string name="update_failed">No se ha podido comprobar</string>
+    <string name="update_failed_hint">Último intento %1$s. Se vuelve a mirar mañana al abrir la app, o ahora con «Buscar ahora».</string>
+    <string name="update_check_now">Buscar ahora</string>
+    <string name="update_checking">Buscando una versión nueva</string>
+    <string name="update_available">Hay una versión nueva: %1$s</string>
+    <string name="update_available_beta">Hay una beta nueva: %1$s</string>
+    <string name="update_notes_link">Ver las novedades en GitHub</string>
+    <string name="update_download">Bajar e instalar · %1$s</string>
+    <string name="update_downloading">Bajando %1$s de %2$s</string>
+    <string name="update_verifying">Comprobando que el fichero es el bueno</string>
+    <string name="update_install">Instalar</string>
+    <string name="update_permission">Android pide permiso para que Tiempo instale apps. Actívalo en la pantalla que se ha abierto, vuelve aquí y pulsa «Instalar».</string>
+    <string name="update_installing">Confirma la instalación en la ventana de Android. Tus sitios y ajustes se quedan como están.</string>
+    <string name="update_download_failed">No se ha podido bajar entera. Comprueba la conexión y vuelve a intentarlo.</string>
+    <string name="update_invalid">El fichero bajado no es el que tenía que ser y se ha borrado. No se ha instalado nada.</string>
+    <string name="update_install_failed">Android no ha podido instalarla.</string>
+    <string name="update_retry">Volver a intentarlo</string>
+    <string name="update_beta">Recibir versiones beta</string>
+    <string name="update_beta_hint">Las versiones nuevas llegan antes, para probarlas, y pueden traer algún fallo. La estable sale después con el mismo fichero.</string>
+    <string name="update_notice">Hay una versión nueva de Tiempo: %1$s</string>
+    <string name="update_notice_beta">Hay una beta nueva de Tiempo: %1$s</string>
+    <string name="update_notice_open">Ver</string>
+    <string name="update_notice_dismiss">No avisar de esta versión</string>
+    <string name="usage_note">Estimación de esta app: cuenta lo que pide este móvil, también en segundo plano</string>
+    <!-- 016 · parte del día con IA -->
+    <string name="ai_title">IA</string>
+    <string name="ai_intro">Opcional. Un modelo de IA puede escribir el parte del día, la frase del widget y el aviso de la mañana, y contestar lo que le preguntes del tiempo. Sin él, Tiempo escribe el parte con sus propias reglas y funciona igual.\n\nHace falta una clave de API de tu cuenta en el proveedor que elijas. Es de pago por uso y lo cobra el proveedor a esa cuenta: Tiempo no cobra nada ni ve tus datos.</string>
+    <string name="ai_privacy">Qué sale del móvil: cifras y horas de la previsión, sin tu ubicación ni el nombre del sitio, y tus preguntas tal cual las escribes. La clave se guarda cifrada y solo en este móvil.</string>
+    <string name="ai_key_where">Dónde sacar una clave de %1$s</string>
+    <string name="ai_provider_label">Proveedor</string>
+    <string name="ai_provider_claude">Claude</string>
+    <string name="ai_provider_gemini">Gemini</string>
+    <string name="ai_provider_openai">ChatGPT</string>
+    <string name="ai_key_label">Clave de API</string>
+    <string name="ai_key_hint_saved">Clave guardada: …%1$s</string>
+    <string name="ai_key_field">Pega aquí la clave</string>
+    <string name="ai_save">Guardar</string>
+    <string name="ai_clear">Borrar</string>
+    <string name="ai_test">Probar ahora</string>
+    <string name="ai_testing">Probando…</string>
+    <string name="ai_test_ok">Funciona. Parte de prueba: %1$s</string>
+    <string name="ai_usage_title">Gasto</string>
+    <string name="ai_usage_today">Hoy: %1$s llamadas · %2$s</string>
+    <plurals name="ai_usage_asks">
+        <item quantity="one">%1$d pregunta de %2$d</item>
+        <item quantity="other">%1$d preguntas de %2$d</item>
+    </plurals>
+    <string name="ai_usage_month">Este mes: %1$s llamadas · %2$s tokens</string>
+    <string name="ai_last_ok">Último intento a las %1$s: bien</string>
+    <string name="ai_last_failed">Último intento a las %1$s: %2$s</string>
+    <string name="ai_failure_no_key">No hay clave guardada para este proveedor, o el móvil no pudo guardarla.</string>
+    <string name="ai_failure_bad_key">La clave no es válida. Revísala o pega otra.</string>
+    <string name="ai_failure_no_credit">La cuenta del proveedor se ha quedado sin saldo.</string>
+    <string name="ai_failure_rate_limit">El proveedor dice que se ha pedido demasiado. Se reintentará más tarde.</string>
+    <string name="ai_failure_offline">No hay conexión con el proveedor.</string>
+    <string name="ai_failure_provider">El proveedor ha fallado o ha cambiado su servicio.</string>
+    <string name="ai_failure_bad_reply">La respuesta no era buena y no se ha usado.</string>
+    <string name="ai_failure_timeout">El proveedor ha tardado demasiado.</string>
+    <!-- 018 · pregunta por el tiempo -->
+    <string name="ask_pill">Pregunta por el tiempo de %1$s</string>
+    <string name="ask_pill_capped">Mañana más · ya van %1$d preguntas hoy</string>
+    <string name="ask_title">Pregunta por %1$s</string>
+    <string name="ask_subtitle">Con la previsión guardada de las %1$s · hasta el %2$s</string>
+    <string name="ask_hint">¿Puedo tender mañana?</string>
+    <string name="ask_field_label">Tu pregunta</string>
+    <string name="ask_send">Enviar</string>
+    <string name="ask_sent_to">Lo que escribas se envía a %1$s.</string>
+    <string name="ask_cut">He cortado lo pegado a %1$d caracteres.</string>
+    <string name="ask_counter">%1$d/%2$d</string>
+    <string name="ask_working">Mirando la previsión de %1$s…</string>
+    <string name="ask_cancel">Cancelar</string>
+    <string name="ask_answer_label">IA · %1$s</string>
+    <string name="ask_stale">Con datos de las %1$s</string>
+    <string name="ask_again">Otra pregunta</string>
+    <string name="ask_out_of_scope">Solo sé del tiempo de %1$s en los próximos 10 días, hasta el %2$s</string>
+    <string name="ask_retry">Reintentar</string>
+    <string name="ask_change">Cambiar la pregunta</string>
+    <string name="ask_fail_unsure">No he podido contestar con seguridad.</string>
+    <string name="ask_fail_offline">No hay conexión, así que no he podido preguntar.</string>
+    <string name="ask_fail_bad_key">%1$s no acepta la clave. Puedes cambiarla en Ajustes → IA.</string>
+    <string name="ask_fail_no_credit">La cuenta de %1$s se ha quedado sin saldo.</string>
+    <string name="ask_fail_timeout">%1$s ha tardado más de 20 s en contestar.</string>
+    <string name="ask_fail_cut">La respuesta ha llegado cortada.</string>
+    <string name="ask_fail_other">%1$s no ha podido contestar ahora.</string>
+    <string name="ask_fail_cap">Mañana más: ya van %1$d preguntas hoy.</string>
+    <string name="ask_fail_no_key">Falta la clave de %1$s. Puedes ponerla en Ajustes → IA.</string>
+    <!-- 018 · parte de la mañana -->
+    <string name="morning_title_section">Parte de la mañana</string>
+    <string name="morning_switch">Notificación cada mañana</string>
+    <string name="morning_switch_hint">El parte de hoy de donde estés, con la mínima, la máxima y los avisos</string>
+    <string name="morning_time">Hora</string>
+    <string name="morning_last">Última: %1$s a las %2$s, %3$s</string>
+    <string name="morning_last_ai">con IA</string>
+    <string name="morning_last_rules">con reglas</string>
+    <string name="morning_today">hoy</string>
+    <string name="morning_yesterday">ayer</string>
+    <string name="morning_denied">Sin permiso para avisarte. Dalo en los ajustes del móvil: Aplicaciones → Tiempo → Notificaciones.</string>
+    <string name="morning_time_cancel">Dejar como está</string>
+    <string name="morning_time_ok">Poner hora</string>
+    <string name="morning_channel">Parte de la mañana</string>
+    <string name="morning_title">Hoy %1$d° a %2$d°</string>
+    <string name="morning_warning">Aviso %1$s por %2$s</string>
+    <string name="morning_data_at">Datos de las %1$s</string>
+    <string name="refresh_origin_morning">Antes del aviso</string>
+    <string name="refresh_morning_notice">Parte de la mañana · pedido %1$s · %2$s</string>
+    <!-- 015 · refrescos de «donde estoy» -->
+    <string name="refresh_title">Refrescos</string>
+    <string name="refresh_last">Último refresco</string>
+    <string name="refresh_worst">Peor hueco en 24 h</string>
+    <string name="refresh_worst_value">El dato llegó a tener %1$s</string>
+    <string name="refresh_empty">Aún no hay refrescos registrados</string>
+    <string name="refresh_list">Últimas 24 h</string>
+    <string name="refresh_none_24h">Ningún refresco en las últimas 24 h</string>
+    <string name="refresh_yesterday">ayer %1$s</string>
+    <string name="refresh_origin_worker">Segundo plano</string>
+    <string name="refresh_origin_alarm">Alarma de respaldo</string>
+    <string name="refresh_origin_app">Al abrir</string>
+    <string name="refresh_ok">Bien</string>
+    <string name="refresh_offline">Sin conexión</string>
+    <string name="refresh_no_location">Sin ubicación</string>
+    <string name="refresh_aemet_unchanged">AEMET sin cambios</string>
+    <string name="refresh_aemet_unchanged_kb">AEMET sin cambios · %1$s</string>
+    <string name="refresh_aemet_new">AEMET nuevos · %1$s</string>
+    <string name="refresh_aemet_failed">AEMET falló</string>
+    <!-- 004 · página del día -->
+    <string name="open_today">Abre el día de hoy</string>
+    <string name="day_place">%1$s · %2$s</string>
+    <string name="day_min">Mín %1$s°</string>
+    <string name="day_rain">Lluvia %1$d %% · %2$s</string>
+    <string name="day_rain_mm">Lluvia %1$s</string>
+    <string name="day_summary">Resumen del día</string>
+    <string name="hour_by_hour">Hora a hora</string>
+    <string name="wind_and_humidity">Viento y humedad</string>
+    <string name="models">Modelos</string>
+    <string name="humidity_axis_min">0</string>
+    <string name="humidity_axis_max">100 %</string>
+    <string name="dst_backward">Esta noche se atrasa la hora: las %1$s salen dos veces</string>
+    <string name="dst_forward">Esta noche se adelanta la hora: de las %1$s se pasa a las %2$s</string>
+    <!-- 004 · P3: sol y luna, modelos y hojas de 24 h -->
+    <string name="sun_and_moon">Sol y luna</string>
+    <string name="now_mark">ahora</string>
+    <string name="models_dimmed">Atenuado: se aparta del resto</string>
+    <string name="model_dimmed_state">Se aparta del resto</string>
+    <string name="board_models">modelos\nsecos · con lluvia</string>
+    <string name="board_maxima">máximas\nde los modelos</string>
+    <string name="board_scenarios_dry">secos\nde %1$d escenarios</string>
+    <string name="board_scenarios_wet">con lluvia\nde %1$d escenarios</string>
+    <string name="open_next_24">Abre las próximas 24 horas</string>
+    <string name="sheet_wind_hint">Próximas 24 horas, de 3 en 3 · el viento y la racha más fuertes de cada tramo; la flecha apunta hacia donde sopla</string>
+    <string name="sheet_humidity_hint">Próximas 24 horas por partes del día · humedad mínima y máxima, y el punto de rocío más alto</string>
+    <string name="sheet_hours">Horas</string>
+    <string name="sheet_humidity_range">mín–máx</string>
+    <string name="sheet_wind_column">Viento · rachas</string>
+    <string name="sheet_kmh">km/h</string>
+    <string name="sheet_dew">Rocío</string>
+    <!-- 005 · aire y polen -->
+    <string name="card_air">Aire</string>
+    <string name="card_pollen">Polen</string>
+    <string name="tomorrow">Mañana</string>
+    <string name="open_next_days">Abre los próximos días</string>
+    <string name="sheet_air_hint">Hoy y los 3 días siguientes · índice europeo de calidad del aire</string>
+    <string name="sheet_pollen_hint">Hoy y los 3 días siguientes · olivo y gramíneas</string>
+    <string name="sheet_air_note">El nivel de cada día es el de su peor hora. Escala europea: buena hasta 20, razonablemente buena hasta 40, regular hasta 60, desfavorable hasta 80, muy desfavorable hasta 100 y extremadamente desfavorable por encima.</string>
+    <string name="sheet_pollen_note">El nivel de cada día sale de la media de sus horas, con los umbrales de la Red Española de Aerobiología. Olivo: bajo hasta 50 granos/m³, moderado hasta 200 y alto por encima. Gramíneas: bajo hasta 25, moderado hasta 50 y alto por encima. Es la previsión del modelo CAMS, no lo que mide un captador.</string>
+    <!-- TalkBack del arco de cada día en la hoja del aire: «índice 42» -->
+    <string name="air_index">índice %1$d</string>
+    <!-- 006 · varios sitios -->
+    <string name="place_here">Donde estoy</string>
+    <string name="place_saved">Sitio guardado</string>
+    <string name="place_button_here">%1$s, donde estoy. Cambiar de sitio</string>
+    <string name="place_button_saved">%1$s, sitio guardado. Cambiar de sitio</string>
+    <string name="place_button_plain">%1$s. Cambiar de sitio</string>
+    <string name="local_time_suffix">%1$s, hora de allí</string>
+    <string name="places">Sitios</string>
+    <string name="places_edit">Editar</string>
+    <string name="places_done">Hecho</string>
+    <string name="search_place">Buscar un sitio</string>
+    <string name="saved_title">Guardados</string>
+    <string name="saved_count">Guardados · %1$d de %2$d</string>
+    <string name="saved_empty">Aún no has guardado ningún sitio. Búscalo por su nombre: el de un viaje, la casa de alguien…</string>
+    <string name="card_no_data">Aún sin datos</string>
+    <string name="card_no_permission">Sin permiso de ubicación</string>
+    <string name="card_local_time">%1$s · %2$s allí</string>
+    <!-- TalkBack de una postal: «Sevilla, poco nuboso, 22 grados, máxima 24, mínima 11» -->
+    <string name="card_talkback">%1$s, %2$s, %3$d grados, máxima %4$d, mínima %5$d</string>
+    <string name="card_talkback_here">%1$s, donde estoy, %2$s, %3$d grados, máxima %4$d, mínima %5$d</string>
+    <string name="card_talkback_local">%1$s allí</string>
+    <string name="card_open">Abre %1$s</string>
+    <string name="delete_place">Borrar %1$s</string>
+    <string name="search_hint_title">Escribe al menos 2 letras.</string>
+    <string name="search_hint_body">Busco en la lista de lugares que lleva la app: no sale nada a internet.</string>
+    <string name="search_loading">Buscando…</string>
+    <string name="search_none_title">No encuentro «%1$s».</string>
+    <string name="search_none_body">Prueba con otra forma del nombre. Los barrios no están en la lista.</string>
+    <string name="search_spain">En España</string>
+    <string name="search_world">En el resto del mundo</string>
+    <string name="search_full">Ya tienes 10 sitios guardados, el máximo. Para guardar otro, borra uno.</string>
+    <string name="search_saved">Guardado</string>
+    <string name="search_save_open">Guardar y abrir %1$s</string>
+    <string name="search_open_saved">Abrir %1$s. Ya guardado</string>
+    <string name="search_clear">Borrar lo escrito</string>
+    <string name="delete_sheet_title">Borrar %1$s</string>
+    <string name="delete_body">Se quita de tus sitios con todo lo que tenía guardado. Puedes volver a buscarlo cuando quieras.</string>
+    <string name="delete">Borrar</string>
+    <string name="saved_downloading">Descargando el tiempo de %1$s…</string>
+    <string name="saved_no_data_title">Aún no tengo datos de %1$s</string>
+    <string name="saved_no_data_body">Lo has guardado sin conexión. En cuanto vuelva, descargo su tiempo.</string>
+</resources>

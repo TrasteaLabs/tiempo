@@ -1,0 +1,1 @@
+{"id":"msg_prueba","type":"message","role":"assistant","model":"claude-haiku-5-5","content":[{"type":"thinking","thinking":"..."},{"type":"text","text":"{\"today\":\"Hoy sube a 21° a las 15:00.\",\"days\":[],\"warnings\":[]}"}],"stop_reason":"end_turn","usage":{"input_tokens":2500,"output_tokens":1500}}

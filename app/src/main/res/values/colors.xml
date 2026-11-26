@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Pantalla de arranque: el primer color de la escena de nubes, para no dar un salto al abrir (H19). -->
+    <color name="splash_background">#56709F</color>
+    <color name="icon_background">#3D5A8A</color>
+</resources>

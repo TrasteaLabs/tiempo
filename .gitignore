@@ -1,0 +1,36 @@
+# Claves y secretos
+local.properties
+.env
+.env.*
+
+# Montaje personal de quien mantiene (Claude Code)
+CLAUDE.local.md
+.claude/settings.local.json
+
+# Build y dependencias
+build/
+.gradle/
+node_modules/
+
+# IDE y SO
+.idea/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Material de entrada (no se publica)
+*.pdf
+
+# Android / Kotlin
+.kotlin/
+captures/
+*.apk
+*.aab
+app/release/
+.externalNativeBuild/
+.cxx/
+tools/prueba_reposo.log
+tools/medidas.log
+app/src/main/java/com/trastealabs/tiempo/MedidaCheck.kt
+__pycache__/
+tools/raw-*/

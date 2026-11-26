@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<alert xmlns="urn:oasis:names:tc:emergency:cap:1.2">
+    <identifier>2.49.0.0.724.0.ES.20250610093000.999901VE</identifier>
+    <sender>http://www.aemet.es</sender>
+    <sent>2025-06-10T09:30:00+02:00</sent>
+    <status>Actual</status>
+    <msgType>Alert</msgType>
+    <scope>Public</scope>
+    <info>
+        <language>es-ES</language>
+        <category>Met</category>
+        <event>Temperaturas máximas - Sin aviso</event>
+        <responseType>Monitor</responseType>
+        <urgency>Future</urgency>
+        <severity>Moderate</severity>
+        <certainty>Likely</certainty>
+        <eventCode>
+            <valueName>AEMET-Meteoalerta fenomeno</valueName>
+            <value>TE;Temperaturas máximas</value>
+        </eventCode>
+        <effective>2025-06-10T09:30:00+02:00</effective>
+        <onset>2025-06-10T12:00:00+02:00</onset>
+        <expires>2025-06-10T20:00:00+02:00</expires>
+        <senderName>AEMET. Agencia Estatal de Meteorología</senderName>
+        <headline>Temperaturas máximas - Sin aviso. Llanura de Ejemplo</headline>
+        <web>http://www.aemet.es/es/eltiempo/prediccion/avisos</web>
+        <contact>https://www.aemet.es/es/contacto</contact>
+        <parameter>
+            <valueName>AEMET-Meteoalerta nivel</valueName>
+            <value>verde</value>
+        </parameter>
+        <parameter>
+            <valueName>AEMET-Meteoalerta parametro</valueName>
+            <value>TE;Temperaturas máximas;</value>
+        </parameter>
+        <parameter>
+            <valueName>AEMET-Meteoalerta probabilidad</valueName>
+            <value>10%-40%</value>
+        </parameter>
+        <description>Sin aviso.</description>
+        <instruction></instruction>
+        <area>
+            <areaDesc>Llanura de Ejemplo</areaDesc>
+            <polygon>39.5,-3.5 40.5,-3.5 40.5,-2.5 39.5,-2.5 39.5,-3.5</polygon>
+            <geocode>
+                <valueName>AEMET-Meteoalerta zona</valueName>
+                <value>999901</value>
+            </geocode>
+        </area>
+    </info>
+</alert>

@@ -1,0 +1,1 @@
+{"candidates":[{"content":{"role":"model","parts":[{"text":"{\"today\":\"Hoy sube a 21° a las 15:00.\",\"days\":[],\"warnings\":[]}"}]},"finishReason":"STOP","index":0}],"usageMetadata":{"promptTokenCount":2400,"candidatesTokenCount":900,"thoughtsTokenCount":100,"totalTokenCount":3400}}

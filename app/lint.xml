@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lint>
+    <!--
+        018 P2: la alarma de la notificación de la mañana es exacta y usa USE_EXACT_ALARM, que se concede al instalar
+        (app personal que no va a la tienda). Lint solo reconoce SCHEDULE_EXACT_ALARM para esta llamada y avisa de
+        «MissingPermission»; si el sistema no deja alarmas exactas, el código cae a una no exacta (canScheduleExactAlarms).
+    -->
+    <issue id="MissingPermission">
+        <ignore path="**/refresh/RefreshScheduler.kt" />
+    </issue>
+</lint>

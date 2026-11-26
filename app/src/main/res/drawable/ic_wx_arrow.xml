@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Flecha del viento (punta de navegación rellena, `arrow` de la maqueta del 004): apunta hacia arriba; se gira hacia donde sopla. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M12,3.2L18.4,19.6L12,16.1L5.6,19.6Z" />
+</vector>

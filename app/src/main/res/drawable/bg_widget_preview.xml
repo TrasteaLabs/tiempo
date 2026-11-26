@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Vista previa del widget: el degradado de la escena de nubes (la de antes de abrir la app, H18). -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <gradient
+        android:angle="270"
+        android:startColor="#56709F"
+        android:centerColor="#7B95C0"
+        android:endColor="#B3C2DB"
+        android:centerY="0.55" />
+    <corners android:radius="22dp" />
+</shape>

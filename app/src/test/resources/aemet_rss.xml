@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>AEMET. Avisos de fenómenos meteorológicos adversos</title>
+    <link>http://www.aemet.es/es/eltiempo/prediccion/avisos</link>
+    <description>Avisos en formato CAP</description>
+    <item>
+      <title>Estado completo de avisos para España</title>
+      <link>{BASE}/documentos_d/eltiempo/prediccion/avisos/cap/Z_CAP_C_LEMM_20250610093000_AFAE.tar.gz</link>
+      <pubDate>Tue, 10 Jun 2025 07:30:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Avisos de la zona 999901</title>
+      <link>{BASE}/documentos_d/eltiempo/prediccion/avisos/cap/Z_CAP_C_LEMM_20250610093000_AFAZ999901TO.xml</link>
+    </item>
+  </channel>
+</rss>

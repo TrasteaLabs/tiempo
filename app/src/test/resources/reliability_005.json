@@ -1,0 +1,1 @@
+{"reliability": {"position": {"lat": 40.0, "lon": -3.0}, "zoneId": "Europe/Madrid", "fetchedAt": 1793778120, "days": [{"date": "2026-11-04", "scenarios": 122, "wetScenarios": 10, "maxLowC": 18.0, "maxHighC": 20.5}, {"date": "2026-11-05", "scenarios": 122, "wetScenarios": 70, "maxLowC": 15.5, "maxHighC": 18.0}]}, "lastFailedAt": null}

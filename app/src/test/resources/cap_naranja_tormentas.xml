@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<alert xmlns="urn:oasis:names:tc:emergency:cap:1.2">
+    <identifier>2.49.0.0.724.0.ES.20250610093000.999901TO1749538800</identifier>
+    <sender>http://www.aemet.es</sender>
+    <sent>2025-06-10T09:30:00+02:00</sent>
+    <status>Actual</status>
+    <msgType>Alert</msgType>
+    <scope>Public</scope>
+    <info>
+        <language>en-GB</language>
+        <category>Met</category>
+        <event>Thunderstorms - Orange warning</event>
+        <responseType>Monitor</responseType>
+        <urgency>Future</urgency>
+        <severity>Moderate</severity>
+        <certainty>Likely</certainty>
+        <eventCode>
+            <valueName>AEMET-Meteoalerta fenomeno</valueName>
+            <value>TO;Thunderstorms</value>
+        </eventCode>
+        <effective>2025-06-10T09:30:00+02:00</effective>
+        <onset>2025-06-10T16:00:00+02:00</onset>
+        <expires>2025-06-10T22:00:00+02:00</expires>
+        <senderName>AEMET. Agencia Estatal de Meteorología</senderName>
+        <headline>Thunderstorms - Orange warning. Example zone</headline>
+        <web>http://www.aemet.es/es/eltiempo/prediccion/avisos</web>
+        <contact>https://www.aemet.es/es/contacto</contact>
+        <parameter>
+            <valueName>AEMET-Meteoalerta nivel</valueName>
+            <value>naranja</value>
+        </parameter>
+        <parameter>
+            <valueName>AEMET-Meteoalerta parametro</valueName>
+            <value>TO;Thunderstorms;</value>
+        </parameter>
+        <parameter>
+            <valueName>AEMET-Meteoalerta probabilidad</valueName>
+            <value>40%-70%</value>
+        </parameter>
+        <description>Storms with heavy rain.</description>
+        <instruction>Be careful.</instruction>
+        <area>
+            <areaDesc>Example zone</areaDesc>
+            <polygon>39.5,-3.5 40.5,-3.5 40.5,-2.5 39.5,-2.5 39.5,-3.5</polygon>
+            <geocode>
+                <valueName>AEMET-Meteoalerta zona</valueName>
+                <value>999901</value>
+            </geocode>
+        </area>
+    </info>
+    <info>
+        <language>es-ES</language>
+        <category>Met</category>
+        <event>Tormentas - Aviso naranja</event>
+        <responseType>Monitor</responseType>
+        <urgency>Future</urgency>
+        <severity>Moderate</severity>
+        <certainty>Likely</certainty>
+        <eventCode>
+            <valueName>AEMET-Meteoalerta fenomeno</valueName>
+            <value>TO;Tormentas</value>
+        </eventCode>
+        <effective>2025-06-10T09:30:00+02:00</effective>
+        <onset>2025-06-10T16:00:00+02:00</onset>
+        <expires>2025-06-10T22:00:00+02:00</expires>
+        <senderName>AEMET. Agencia Estatal de Meteorología</senderName>
+        <headline>Tormentas - Aviso naranja. Llanura de Ejemplo</headline>
+        <web>http://www.aemet.es/es/eltiempo/prediccion/avisos</web>
+        <contact>https://www.aemet.es/es/contacto</contact>
+        <parameter>
+            <valueName>AEMET-Meteoalerta nivel</valueName>
+            <value>naranja</value>
+        </parameter>
+        <parameter>
+            <valueName>AEMET-Meteoalerta parametro</valueName>
+            <value>TO;Tormentas;</value>
+        </parameter>
+        <parameter>
+            <valueName>AEMET-Meteoalerta probabilidad</valueName>
+            <value>40%-70%</value>
+        </parameter>
+        <description>Tormentas con granizo y rachas muy fuertes.</description>
+        <instruction>Evite zonas inundables.</instruction>
+        <area>
+            <areaDesc>Llanura de Ejemplo</areaDesc>
+            <polygon>39.5,-3.5 40.5,-3.5 40.5,-2.5 39.5,-2.5 39.5,-3.5</polygon>
+            <geocode>
+                <valueName>AEMET-Meteoalerta zona</valueName>
+                <value>999901</value>
+            </geocode>
+        </area>
+    </info>
+</alert>

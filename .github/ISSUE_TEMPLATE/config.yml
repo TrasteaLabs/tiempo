@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Fallo de seguridad
+    url: https://github.com/trastealabs/tiempo/security/advisories/new
+    about: Avisa en privado, sin hacerlo público. Más detalles en SECURITY.md.
+  - name: Privacidad
+    url: https://github.com/trastealabs/tiempo/blob/main/PRIVACY.md
+    about: Qué datos usa la app y a dónde se conecta.
