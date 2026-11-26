@@ -14,7 +14,7 @@ object UpdateConfig {
     const val APK_SLUG = "tiempo"
 
     const val REPO_URL = "https://github.com/$OWNER/$REPO"
-    const val RELEASES_API_URL = "https://api.github.com/repos/$OWNER/$REPO/releases?per_page=30"
+    const val RELEASES_API_URL = "https://api.github.com/repos/$OWNER/$REPO/releases?per_page=100"
     const val NEW_ISSUE_URL = "$REPO_URL/issues/new/choose"
     const val PRIVACY_URL = "$REPO_URL/blob/main/PRIVACY.md"
     const val LICENSE_URL = "$REPO_URL/blob/main/LICENSE"

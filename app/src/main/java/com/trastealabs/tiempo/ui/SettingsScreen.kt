@@ -5,6 +5,8 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.graphics.Bitmap
+import android.os.Build
+import android.widget.Toast
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -504,7 +506,10 @@ private fun AboutRow(
                             role = Role.Button,
                             onLongClick = onLongClick,
                             onLongClickLabel = onLongClickLabel,
-                        ) { runCatching { uri.openUri(url) } }
+                        ) {
+                            // 022: si no hay app que lo abra (un móvil sin app de correo), se copia si la fila sabe copiar.
+                            runCatching { uri.openUri(url) }.onFailure { onLongClick?.invoke() }
+                        }
                     } else {
                         Modifier
                     },
@@ -527,16 +532,19 @@ private fun AboutRow(
     }
 }
 
-/** Copia [text] al portapapeles (Android 13+ ya enseña su propio aviso de «copiado»). */
+/** Copia [text] al portapapeles. Android 13+ ya enseña su propio aviso de «copiado»; en el 12, un aviso nuestro. */
 @Composable
 private fun rememberCopyText(text: String): () -> Unit {
     val context = LocalContext.current
-    return remember(context, text) {
+    val copied = stringResource(R.string.about_email_copied)
+    return remember(context, text, copied) {
         {
-            runCatching {
+            val ok = runCatching {
                 context.getSystemService(ClipboardManager::class.java)?.setPrimaryClip(ClipData.newPlainText(text, text))
+            }.isSuccess
+            if (ok && Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+                Toast.makeText(context, copied, Toast.LENGTH_SHORT).show()
             }
-            Unit
         }
     }
 }
