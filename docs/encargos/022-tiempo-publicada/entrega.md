@@ -18,10 +18,15 @@ Capturas: `captura-beta-nueva.png` (beta ofrecida con el interruptor encendido),
 - `tools/publicar.sh`: publicó la 1.0.0; se niega si ya hay estable o sin la palabra `estable`.
 - Revisión: sin bloqueantes. Arreglado: la estable podía salirse de la lista que pide la app tras 30 betas (ahora 100 por página y, si no hay estable en la lista, `releases/latest`); tocar el correo sin app de correo no hacía nada (ahora lo copia) y en Android 12 copiar no avisaba (ahora «Correo copiado»); comentario de `concurrency` corregido; trampa de `estable.yml` añadida a la plantilla.
 
+## En el OPPO (bloque 4, 27-11-2026, por cable)
+- Instalada la estable 1.0.0 (6) desde el fichero de Releases, al lado de la antigua (`es.alvaro.weather`, sin abrir ni tocar). Con el interruptor beta apagado, «Está al día»; encendido, ofrece la 1.0.1 beta 10 (`captura-oppo-beta.png`).
+- ColorOS pide «Instalar aplicaciones desconocidas › Autorizar de esta fuente» (lo activó Álvaro) y la app lo explica bien. Después, el instalador de Android pregunta «¿Quieres actualizar?» y **Google Play Protect la bloquea**: «Aplicación bloqueada para proteger tu dispositivo · Play Protect no conoce ninguna otra aplicación de este desarrollador». Solo sigue con «Más detalles › Instalar de todas formas» (lo pulsó Álvaro). Quedó en 1.0.1 (10) y los trabajos y alarmas de refresco siguieron programados tras actualizar.
+- Widgets 4×1 y 4×2 de la nueva puestos por Álvaro. A las 13:01, sin abrir la app y con el móvil en otras apps, WorkManager corrió el refresco y acabó bien (`jobFinished`), y la alarma de respaldo se reprogramó: el widget se repinta con ese dato. Cuánto aguanta ColorOS durante horas con la pantalla apagada se verá en Ajustes › Refrescos de la nueva.
+
 ## Pendiente
-- Del usuario: la pasada en el OPPO (bloque 4) no se ha hecho: el móvil no estaba conectado. Con el OPPO por cable unos minutos, Claude instala «Tiempo» (`com.trastealabs.tiempo`) desde Releases al lado de la antigua sin tocarla, y comprueba el permiso de «instalar apps desconocidas» de ColorOS, una actualización real y que el widget refresca. Después, en la Tiempo nueva: sus sitios, la clave de IA, los widgets y «Recibir versiones beta» (también en los móviles de la familia); cuando la vea bien, desinstalar la antigua.
-- En el móvil real (el emulador no lo ve): instalar y actualizar en ColorOS, widget refrescando.
-- Para más adelante: el aviso «ColorOS cierra las apps…» sale también en móviles que no son OPPO (se vio en el emulador); «Hay una beta nueva: 1.0.0» no dice el número cuando la versión instalada se llama igual; valorar las «releases inmutables» de GitHub; la 1.0.1 beta 10 espera su estable cuando Álvaro quiera.
+- Del usuario: decidir qué hacer con Play Protect (ver «Para más adelante»). En la Tiempo nueva: sus sitios, la clave de IA y «Recibir versiones beta» en los móviles de la familia (allí también saldrá el aviso de Play Protect); cuando la vea bien, desinstalar la antigua.
+- Para más adelante: **Play Protect bloquea Tiempo** en la primera instalación desde el navegador y en cada actualización, para cualquiera que lo tenga activo, hasta que Google «conozca» al desarrollador. Lo que lo arregla de verdad es la verificación de desarrollador de Android (identidad de Trastea Labs + paquete y clave de firma, en la Android Developer Console): obligatoria en Brasil, Indonesia, Singapur y Tailandia desde septiembre de 2026 y en todo el mundo en 2027, cuando sin ella no se podrá instalar en móviles certificados. Merece encargo propio, con Álvaro (es su identidad y su cuenta). Mientras, el README debería avisar del «Instalar de todas formas».
+- También para más adelante: el aviso «ColorOS cierra las apps…» sale también en móviles que no son OPPO (se vio en el emulador); «Hay una beta nueva: 1.0.0» no dice el número cuando la versión instalada se llama igual; valorar las «releases inmutables» de GitHub; la 1.0.1 beta 10 espera su estable cuando Álvaro quiera.
 
 ## Decisiones tomadas por el camino
 - `mv .git` daba «Permission denied» (algo vigila la carpeta); `Move-Item` movió el contenido y dejó `.git` vacía. Se comprobó la copia (`fsck`, mismo árbol) y se hizo `git init` sobre la vacía. Etiquetas `antes-*` en el privado.
@@ -38,7 +43,7 @@ Capturas: `captura-beta-nueva.png` (beta ofrecida con el interruptor encendido),
 | 1 Corte limpio y repo público | construcción | Opus |
 | 2 Flujos de GitHub | construcción | Opus |
 | 3 Betas, actualización y estable | construcción | Opus |
-| 4 Pasada en el OPPO | pendiente (móvil sin conectar) | — |
+| 4 Pasada en el OPPO | construcción (los toques de permiso, Play Protect y widget, Álvaro) | Opus |
 | 5 Plantilla y cierre | rutinario (plantilla, fila en propuestas) + construcción (archivo del privado, estado) | Opus |
 | Revisión | revisor | Opus |
 

@@ -5,7 +5,7 @@ Actualizado: 2026-11-26. Proyecto al día con Becario 1.0 y Cristal 1.6 (`.claud
 ## Encargo en curso
 022-tiempo-publicada · fase: entregado
 
-Entrega en `docs/encargos/022-tiempo-publicada/entrega.md`. Falta la pasada en el OPPO (bloque 4): el móvil no estaba conectado.
+Entrega en `docs/encargos/022-tiempo-publicada/entrega.md`. Pasada en el OPPO hecha el 27-11: la Tiempo nueva (1.0.1 beta 10) convive con la antigua; Play Protect bloquea la instalación y cada actualización hasta «Instalar de todas formas».
 
 ## Qué hay hecho
 - Repo público `TrasteaLabs/tiempo` (remoto `origin`), con historial limpio desde «Tiempo 1.0.0: primera versión pública». El repo privado de antes está archivado en GitHub y copiado en `../WeatherApp-privado.git` (con las etiquetas `antes-011` … `antes-021` y los encargos 001–020).
@@ -16,7 +16,8 @@ Entrega en `docs/encargos/022-tiempo-publicada/entrega.md`. Falta la pasada en e
 - Plantilla para las demás apps: `docs/plantilla-publicacion.md` (y una fila en `plugins/becario/manual/propuestas.md`).
 
 ## Pendiente
-- Del usuario: conectar el OPPO por cable unos minutos para la pasada del 022 (instalar la nueva al lado de la antigua, permiso de ColorOS, una actualización real, widget). Después, en la nueva: sus sitios, clave de IA, widgets y «Recibir versiones beta» (también la familia); cuando la vea bien, desinstalar la antigua. Decir «publica la estable» cuando quiera la 1.0.1.
+- Del usuario: en la Tiempo nueva, sus sitios y la clave de IA; «Recibir versiones beta» en los móviles de la familia; cuando la vea bien, desinstalar la antigua. Decir «publica la estable» cuando quiera la 1.0.1.
+- Play Protect: verificación de desarrollador de Android para Trastea Labs (obligatoria en todo el mundo en 2027; sin ella no se instalará en móviles certificados). Encargo propio, con Álvaro. Mientras, avisar en el README del «Instalar de todas formas».
 - Del 022 (para más adelante): el aviso «ColorOS cierra las apps…» sale también en móviles que no son OPPO; «Hay una beta nueva: 1.0.0» no dice el número si la instalada se llama igual; valorar «releases inmutables» de GitHub.
 - Del 020: «ahora» pisa el «12» en «Sol y luna»; morado de M3 en el `TimePicker`; «Hecho» sin verbo en Sitios. Los tests que fallaban a ratos: `WidgetMatchesAppTest` era la zona (arreglado en el 022); `MainViewModelTest` y `MoonIconTest` no han fallado en GitHub.
 - Del 019: franja del día a 196 dp fijos (a 200 % recorta), tira de `DeleteSheet` sin medir, nombres largos de postales con «…».
