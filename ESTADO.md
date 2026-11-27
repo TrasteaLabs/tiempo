@@ -3,9 +3,9 @@
 Actualizado: 2026-11-27. Proyecto al día con Becario 1.0 y Cristal 1.6 (`.claude/becario.json` 1.0.2). `check`: `./gradlew :buildSrc:test lintDebug testDebugUnitTest` (1514 tests de la app, verde; también en GitHub).
 
 ## Encargo en curso
-023-registro-google · fase: construcción (bloque 1 de 3)
+023-registro-google · fase: entregado
 
-Plan en `docs/encargos/023-registro-google/plan.md`: cuenta de Play Console a nombre de Álvaro (la crea y la paga él), registrar `com.trastealabs.tiempo` con su firma y comprobar si Play Protect deja de bloquear. No está comprobado que lo quite. Publicar en Play Store será el 024.
+Construcción entregada el 27-11 (`docs/encargos/023-registro-google/entrega.md`): pasos para Álvaro (`pasos.md`), cómo repetir la prueba del aviso en el OPPO (`linea-base.md`; los emuladores de aquí no tienen Play Store) y apelación preparada (`apelacion.md`). Ahora le toca a él: cuenta de Play Console, identidad, 25 USD y registrar `com.trastealabs.tiempo`. Lo que sigue (fichero de prueba de propiedad, prueba en el OPPO, README o apelación) son retoques. No está comprobado que el registro quite el aviso. Publicar en Play Store será el 024.
 
 Anterior: 022, entrega en `docs/encargos/022-tiempo-publicada/entrega.md`. Pasada en el OPPO hecha el 27-11: la Tiempo nueva (1.0.1 beta 10) convive con la antigua; Play Protect bloquea la instalación y cada actualización hasta «Instalar de todas formas».
 
@@ -19,7 +19,7 @@ Anterior: 022, entrega en `docs/encargos/022-tiempo-publicada/entrega.md`. Pasad
 
 ## Pendiente
 - Del usuario: en la Tiempo nueva, sus sitios y la clave de IA; «Recibir versiones beta» en los móviles de la familia; cuando la vea bien, desinstalar la antigua. Decir «publica la estable» cuando quiera la 1.0.1.
-- Play Protect: en curso, encargo 023. Mientras, el README explica el «Instalar de todas formas».
+- Play Protect: del usuario, seguir `docs/encargos/023-registro-google/pasos.md` y avisar con el paquete «Registrado» (o pegar el texto de la prueba de propiedad). Mientras, el README explica el «Instalar de todas formas».
 - Del 022 (para más adelante): el aviso «ColorOS cierra las apps…» sale también en móviles que no son OPPO; «Hay una beta nueva: 1.0.0» no dice el número si la instalada se llama igual; valorar «releases inmutables» de GitHub.
 - Del 020: «ahora» pisa el «12» en «Sol y luna»; morado de M3 en el `TimePicker`; «Hecho» sin verbo en Sitios. Los tests que fallaban a ratos: `WidgetMatchesAppTest` era la zona (arreglado en el 022); `MainViewModelTest` y `MoonIconTest` no han fallado en GitHub.
 - Del 019: franja del día a 196 dp fijos (a 200 % recorta), tira de `DeleteSheet` sin medir, nombres largos de postales con «…».

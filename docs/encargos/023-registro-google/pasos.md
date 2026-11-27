@@ -25,9 +25,9 @@ La consola te pide un **perfil de pagos de Google**. Es lo que representa tu ide
 ## 3. Los datos de la cuenta
 | Campo | Qué poner | ¿Se ve en público? |
 |---|---|---|
-| Nombre de desarrollador | **Trastea Labs** | Sí |
+| Nombre de desarrollador | **Trastea Labs** (sin comprobar que la consola lo acepte en una cuenta personal: si no lo deja, para y pregunta) | Sí |
 | Nombre legal y dirección | Los tuyos (salen del perfil de pagos) | En Play Store: nombre legal y país. La dirección completa, solo si cobras por algo o te declaras «trader» |
-| Correo y teléfono de contacto | Los tuyos, privados | No: «Google no los muestra» |
+| Correo y teléfono de contacto | Los tuyos, privados | No: «Google no los muestra». El teléfono sí, si te declaras «trader» (punto 4) |
 | Correo de desarrollador | **hola@trastealabs.com** | Sí |
 
 Los tres (correo de contacto, teléfono y correo de desarrollador) se verifican con un **código** que llega por correo o SMS, y tienen que seguir funcionando mientras exista la cuenta.
@@ -35,7 +35,7 @@ Los tres (correo de contacto, teléfono y correo de desarrollador) se verifican 
 Lo de «se ve en público» es para cuando haya una app **publicada en Play Store** (encargo 024). Por registrar un paquete que se reparte fuera de Play, Google no dice qué enseña. **Si alguna pantalla avisa de que algo tuyo será público, para y cópialo antes de confirmar.**
 
 ## 4. ¿Eres «trader» (comerciante)? — es tu declaración
-La consola pregunta si actúas como comerciante en la UE. Es una declaración legal tuya; aquí solo va lo que dice Google:
+La consola pregunta si actúas como comerciante en la UE. Es una declaración legal tuya; aquí solo va lo que dice Google en su página de «trader» (leída el 27-11-2026):
 - **«Trader»** es quien actúa «con fines relacionados con su comercio, negocio, oficio o profesión». Google da como indicios ganar dinero con las apps (pago, compras dentro, anuncios), mucho volumen, llevarlo como negocio o tener un D-U-N-S.
 - **Si dices que sí:** desde el 1-3-2027 se enseñan tus datos de contacto en todo el mundo y, en cuentas personales, **tu teléfono y tu dirección**.
 - **Si dices que no:** Google avisa a los usuarios de la UE y el Reino Unido de que las leyes de consumo no se aplican a lo que hagan contigo. Declararse «no trader» siendo trader está prohibido y puede costar la cuenta.
@@ -71,6 +71,6 @@ Con la identidad verificada:
 **No hagas capturas de la consola para el repo:** salen tu nombre y tus datos.
 
 ## Después
-Con el paquete en «Registrado», Claude repite la prueba de instalación (`linea-base.md`) y, en el OPPO, aceptas la siguiente actualización y cuentas qué sale. Si Play Protect sigue bloqueando, está preparada la apelación (`apelacion.md`).
+Con el paquete en «Registrado», en el OPPO aceptas la siguiente actualización (con «Recibir versiones beta» encendido) y cuentas qué sale, siguiendo `linea-base.md`; en el emulador no se puede (no tiene Play Store). Si Play Protect sigue bloqueando, está preparada la apelación (`apelacion.md`).
 
 Fuentes: [Play Console, crear cuenta](https://support.google.com/googleplay/android-developer/answer/6112435) · [datos de la cuenta y qué se ve](https://support.google.com/googleplay/android-developer/answer/13628312) · [declaración de «trader»](https://support.google.com/googleplay/android-developer/answer/17594752) · [verificación en Play Console](https://developer.android.com/developer-verification/guides/google-play-console) · [guía en PDF de Google, marzo de 2026](https://developer.android.com/developer-verification/guides/pdf-guides/pdc-guide.pdf) · [cuenta completa: documentos](https://developer.android.com/developer-verification/guides/full-distribution)
