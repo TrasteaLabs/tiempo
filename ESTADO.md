@@ -3,7 +3,7 @@
 Actualizado: 2026-11-27. Proyecto al día con Becario 1.0 y Cristal 1.6 (`.claude/becario.json` 1.0.2). `check`: `./gradlew :buildSrc:test lintDebug testDebugUnitTest` (1514 tests de la app, verde; también en GitHub).
 
 ## Encargo en curso
-023-registro-google · fase: construcción
+023-registro-google · fase: construcción (bloque 1 de 3)
 
 Plan en `docs/encargos/023-registro-google/plan.md`: cuenta de Play Console a nombre de Álvaro (la crea y la paga él), registrar `com.trastealabs.tiempo` con su firma y comprobar si Play Protect deja de bloquear. No está comprobado que lo quite. Publicar en Play Store será el 024.
 
