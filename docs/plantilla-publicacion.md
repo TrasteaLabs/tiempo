@@ -49,6 +49,17 @@ Dos rulesets, cada uno con `gh api -X POST repos/<r>/rulesets --input -`:
 - Rama por defecto: destino `~DEFAULT_BRANCH`, reglas `deletion` y `non_fast_forward`.
 - Etiquetas: destino `refs/tags/v*`, reglas `deletion`, `non_fast_forward` y `update`.
 
+## Registro en Google
+
+Para cada app nueva, antes de repartirla: registrar su paquete en Play Console (la misma cuenta de Trastea Labs; no se paga otra vez).
+
+1. «Verificación de desarrolladores de Android» › «Nombres de paquete» › «Registrar nombre de paquete».
+2. Nombre del paquete de la app y la huella SHA-256 de su clave, la de su `firma.sha256`.
+3. Si la consola pide prueba de propiedad, da un texto que va en `app/src/main/assets/adi-registration.properties`. Se hace commit a `main`, sale la beta firmada y se sube ese APK a la consola.
+4. Estado «Registrado» y correo de Google.
+
+Lo hace quien mantiene (cuentas, formularios y subidas a Google son suyos); Claude prepara los pasos y el fichero. Importa porque desde 2027 (Google no ha dado mes) un móvil certificado no instalará ni actualizará una app sin registrar. Ejemplo hecho: `docs/encargos/023-registro-google/pasos.md` y, si Play Protect sigue bloqueando, `apelacion.md`.
+
 ## Pasos que son del usuario
 
 Claude no puede hacerlos.
@@ -58,6 +69,7 @@ Claude no puede hacerlos.
 3. Ejecutar `powershell -ExecutionPolicy Bypass -File tools/subir-secretos.ps1 -KeyDir … -Repo …`.
 4. Decir «publica la estable» cuando la beta esté bien.
 5. En cada móvil: la primera instalación desde Releases y el permiso de «instalar apps desconocidas».
+6. Registrar el paquete en Play Console (sección «Registro en Google»).
 
 ## Cómo se hace el corte limpio
 
