@@ -25,7 +25,7 @@ La consola te pide un **perfil de pagos de Google**. Es lo que representa tu ide
 ## 3. Los datos de la cuenta
 | Campo | Qué poner | ¿Se ve en público? |
 |---|---|---|
-| Nombre de desarrollador | **Trastea Labs** (sin comprobar que la consola lo acepte en una cuenta personal: si no lo deja, para y pregunta) | Sí |
+| Nombre de desarrollador | **Trastea Labs** (comprobado el 27-11-2026: la consola lo acepta en una cuenta personal) | Sí |
 | Nombre legal y dirección | Los tuyos (salen del perfil de pagos) | En Play Store: nombre legal y país. La dirección completa, solo si cobras por algo o te declaras «trader» |
 | Correo y teléfono de contacto | Los tuyos, privados | No: «Google no los muestra». El teléfono sí, si te declaras «trader» (punto 4) |
 | Correo de desarrollador | **hola@trastealabs.com** | Sí |
@@ -49,7 +49,9 @@ La consola pregunta si actúas como comerciante en la UE. Es una declaración le
 4. Espera el correo de que la identidad está verificada. Google no da plazo.
 
 ## 6. Registrar el paquete de Tiempo
-Con la identidad verificada:
+Visto el 27-11-2026: el alta pide primero el perfil de pagos, el perfil público, unas preguntas (experiencia, otras cuentas, web, planes) y el contacto; el documento de identidad, la declaración de «trader», el móvil Android y el teléfono se piden después, en la página de inicio. Mientras quede alguna pendiente, esta página dice «Antes de poder registrar nombres de paquete, debes completar las verificaciones pendientes» y no deja seguir.
+
+Con todo verificado:
 1. En el menú de la izquierda, **«Verificación de desarrolladores de Android»** («Android developer verification») › pestaña **«Nombres de paquete»** › botón **«Registrar nombre de paquete»**.
 2. Nombre del paquete: `com.trastealabs.tiempo`
 3. Clave: elige o pega esta huella SHA-256 (es pública, está en `firma.sha256` del repo):

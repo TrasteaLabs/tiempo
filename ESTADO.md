@@ -19,7 +19,7 @@ Anterior: 022, entrega en `docs/encargos/022-tiempo-publicada/entrega.md`. Pasad
 
 ## Pendiente
 - Del usuario: en la Tiempo nueva, sus sitios y la clave de IA; «Recibir versiones beta» en los móviles de la familia; cuando la vea bien, desinstalar la antigua. Decir «publica la estable» cuando quiera la 1.0.1.
-- Play Protect: del usuario, seguir `docs/encargos/023-registro-google/pasos.md` y avisar con el paquete «Registrado» (o pegar el texto de la prueba de propiedad). Mientras, el README explica el «Instalar de todas formas».
+- Play Protect (023): cuenta personal de Play Console «Trastea Labs» creada el 27-11-2026, declarada no comerciante; identidad enviada y en revisión de Google. La consola no deja registrar paquetes hasta que acaben las verificaciones de la página de inicio (queda además verificar el teléfono de contacto). Después: registrar `com.trastealabs.tiempo` con la huella de `firma.sha256` (y la prueba de propiedad si la pide) y probar en el OPPO. Mientras, el README explica el «Instalar de todas formas».
 - Del 022 (para más adelante): el aviso «ColorOS cierra las apps…» sale también en móviles que no son OPPO; «Hay una beta nueva: 1.0.0» no dice el número si la instalada se llama igual; valorar «releases inmutables» de GitHub.
 - Del 020: «ahora» pisa el «12» en «Sol y luna»; morado de M3 en el `TimePicker`; «Hecho» sin verbo en Sitios. Los tests que fallaban a ratos: `WidgetMatchesAppTest` era la zona (arreglado en el 022); `MainViewModelTest` y `MoonIconTest` no han fallado en GitHub.
 - Del 019: franja del día a 196 dp fijos (a 200 % recorta), tira de `DeleteSheet` sin medir, nombres largos de postales con «…».
