@@ -1,11 +1,13 @@
 # Estado del proyecto
 
-Actualizado: 2026-11-26. Proyecto al día con Becario 1.0 y Cristal 1.6 (`.claude/becario.json` 1.0.2). `check`: `./gradlew :buildSrc:test lintDebug testDebugUnitTest` (1514 tests de la app, verde; también en GitHub).
+Actualizado: 2026-11-27. Proyecto al día con Becario 1.0 y Cristal 1.6 (`.claude/becario.json` 1.0.2). `check`: `./gradlew :buildSrc:test lintDebug testDebugUnitTest` (1514 tests de la app, verde; también en GitHub).
 
 ## Encargo en curso
-022-tiempo-publicada · fase: entregado
+023-registro-google · fase: construcción
 
-Entrega en `docs/encargos/022-tiempo-publicada/entrega.md`. Pasada en el OPPO hecha el 27-11: la Tiempo nueva (1.0.1 beta 10) convive con la antigua; Play Protect bloquea la instalación y cada actualización hasta «Instalar de todas formas».
+Plan en `docs/encargos/023-registro-google/plan.md`: cuenta de Play Console a nombre de Álvaro (la crea y la paga él), registrar `com.trastealabs.tiempo` con su firma y comprobar si Play Protect deja de bloquear. No está comprobado que lo quite. Publicar en Play Store será el 024.
+
+Anterior: 022, entrega en `docs/encargos/022-tiempo-publicada/entrega.md`. Pasada en el OPPO hecha el 27-11: la Tiempo nueva (1.0.1 beta 10) convive con la antigua; Play Protect bloquea la instalación y cada actualización hasta «Instalar de todas formas».
 
 ## Qué hay hecho
 - Repo público `TrasteaLabs/tiempo` (remoto `origin`), con historial limpio desde «Tiempo 1.0.0: primera versión pública». El repo privado de antes está archivado en GitHub y copiado en `../WeatherApp-privado.git` (con las etiquetas `antes-011` … `antes-021` y los encargos 001–020).
@@ -17,7 +19,7 @@ Entrega en `docs/encargos/022-tiempo-publicada/entrega.md`. Pasada en el OPPO he
 
 ## Pendiente
 - Del usuario: en la Tiempo nueva, sus sitios y la clave de IA; «Recibir versiones beta» en los móviles de la familia; cuando la vea bien, desinstalar la antigua. Decir «publica la estable» cuando quiera la 1.0.1.
-- Play Protect: verificación de desarrollador de Android para Trastea Labs (obligatoria en todo el mundo en 2027; sin ella no se instalará en móviles certificados). Encargo propio, con Álvaro. Mientras, el README explica el «Instalar de todas formas».
+- Play Protect: en curso, encargo 023. Mientras, el README explica el «Instalar de todas formas».
 - Del 022 (para más adelante): el aviso «ColorOS cierra las apps…» sale también en móviles que no son OPPO; «Hay una beta nueva: 1.0.0» no dice el número si la instalada se llama igual; valorar «releases inmutables» de GitHub.
 - Del 020: «ahora» pisa el «12» en «Sol y luna»; morado de M3 en el `TimePicker`; «Hecho» sin verbo en Sitios. Los tests que fallaban a ratos: `WidgetMatchesAppTest` era la zona (arreglado en el 022); `MainViewModelTest` y `MoonIconTest` no han fallado en GitHub.
 - Del 019: franja del día a 196 dp fijos (a 200 % recorta), tira de `DeleteSheet` sin medir, nombres largos de postales con «…».
