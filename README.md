@@ -25,7 +25,8 @@ Capturas de la demo, con datos inventados.
 
 1. Entra en las [Releases](https://github.com/trastealabs/tiempo/releases) y baja el fichero `.apk` de la última versión.
 2. Ábrelo en el móvil. La primera vez, Android te pedirá permitir instalar apps desconocidas desde el navegador o el gestor de ficheros que uses.
-3. Necesitas Android 12 o superior.
+3. Si Google Play Protect dice «Aplicación bloqueada para proteger tu dispositivo» porque no conoce a este desarrollador, toca **Más detalles › Instalar de todas formas**. Pasa con las apps que no vienen de Play Store y cuyo desarrollador Google aún no tiene registrado; puede volver a salir en cada actualización. Si prefieres comprobar antes qué instalas, el código está aquí y cada versión trae su SHA-256 en Releases.
+4. Necesitas Android 12 o superior.
 
 Después no hace falta volver a GitHub: la app avisa sola cuando hay una versión nueva y la instala cuando tú se lo pides.
 
